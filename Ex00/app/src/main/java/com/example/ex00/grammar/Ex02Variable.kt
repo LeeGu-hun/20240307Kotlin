@@ -2,11 +2,20 @@ package com.example.ex00.grammar
 
 import com.example.ex00.util.typePrint
 
+//var n5: Int
+//n5 = 10  // 대입연산자가 단독으로 함수밖에서 사용 불가
 var name: String = "LGH"
-
 var name1 = "Thor" // 동적 할당, 타입 유추
-
 var num: Int = 10
+
+//lateinit var data2: Int//lateinit은 Byte,Short,Int,Long,Float,Double사용 안됨
+lateinit var data3: String
+
+// lazy는 변수가 사용되는 시점에 초기화
+val data4: Int by lazy {
+    println("lazy...")
+    100
+}
 
 fun main() {
     var num2: Int
@@ -48,6 +57,15 @@ fun main() {
     println("UInt: ${UInt.MIN_VALUE}~${UInt.MAX_VALUE}")
     println("ULong: ${ULong.MIN_VALUE}~${ULong.MAX_VALUE}")
 
-    var sum = b1 + s1
+    var sum = b1 + s1 // 연산시 4byte단위인 Int로 형변환
     typePrint(sum) //Int
+
+    var realSum = f1 + d1 // 표현범위가 큰 쪽으로 형변환
+    typePrint(realSum)
+
+    var floatSum = f1 + l1  // 표현범위가 큰 쪽으로 형변환
+    typePrint(floatSum)
+
+    data3 = "late initiate"
+    println(data4)
 }
