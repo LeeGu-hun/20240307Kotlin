@@ -48,4 +48,6 @@ fun main() {
     println("UInt: ${UInt.MIN_VALUE}~${UInt.MAX_VALUE}")
     println("ULong: ${ULong.MIN_VALUE}~${ULong.MAX_VALUE}")
 
+    var sum = b1 + s1
+    typePrint(sum) //Int
 }
