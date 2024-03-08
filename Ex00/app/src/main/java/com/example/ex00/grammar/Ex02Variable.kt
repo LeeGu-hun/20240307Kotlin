@@ -116,6 +116,7 @@ fun main() {
 //    data20 = null // 에러 발생
     var data21: Int? = 10
     data21 = null   // 에러 없음
+    typePrint(data21)
 
     // 4. Nothing //리턴없는 Unit에다가 null 또는 예외를 추가해서 반환할 경우
     val nullableVal: String? = null
