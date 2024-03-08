@@ -38,9 +38,7 @@ fun main() {
     //kotlin에서는 Char가 이항 연산되면 숫자가 아니라 Char타입 출력
     println("c1 + 1 : " + (c1 + 1))
     println(c1.toInt())
-    if(c1 == 98.toChar()){
-        println("같습니다.")
-    }
+    if(c1 == 98.toChar()) println("같습니다.")
 
     var b1: Byte = 100
     var s1: Short = 100
