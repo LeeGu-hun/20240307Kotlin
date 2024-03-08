@@ -112,9 +112,7 @@ fun main() {
 
     // 3. Nothing //null 또는 예외를 반환할 경우
     val nullableVal: String? = null
-//    val value = nullableVal ?: throw IllegalStateException()
-    val value = nullableVal ?: "null"
-    println(value)
+    val value = nullableVal ?: throw IllegalStateException()
 
     val data14: Nothing? = null
     typePrint(data14)
