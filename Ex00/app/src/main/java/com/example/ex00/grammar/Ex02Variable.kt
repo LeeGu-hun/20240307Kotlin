@@ -33,6 +33,14 @@ fun main() {
 //    num5:Int = 10 //변수선언시 var 적용
     var b: Boolean = true
     var c1: Char = ' ' // '\u0000'
+    c1 = 'a'
+    println("c1: " + ++c1)
+    //kotlin에서는 Char가 이항 연산되면 숫자가 아니라 Char타입 출력
+    println("c1 + 1 : " + (c1 + 1))
+    println(c1.toInt())
+    if(c1 == 98.toChar()){
+        println("같습니다.")
+    }
 
     var b1: Byte = 100
     var s1: Short = 100
@@ -50,8 +58,8 @@ fun main() {
 
     var ub: UByte = 10u
     var us: UShort = 10u
-    var uint:UInt = 1000u
-    var ul:ULong = 1000u
+    var uint: UInt = 1000u
+    var ul: ULong = 1000u
     println("UByte: ${UByte.MIN_VALUE}~${UByte.MAX_VALUE}")
     println("UShort: ${UShort.MIN_VALUE}~${UShort.MAX_VALUE}")
     println("UInt: ${UInt.MIN_VALUE}~${UInt.MAX_VALUE}")
@@ -67,5 +75,5 @@ fun main() {
     typePrint(floatSum)
 
     data3 = "late initiate"
-    println(data4)
+    println(data4) // lazy
 }
