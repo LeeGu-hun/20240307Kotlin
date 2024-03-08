@@ -1,6 +1,8 @@
 package com.example.ex00.grammar
 
 import com.example.ex00.util.typePrint
+import java.lang.IllegalStateException
+import kotlin.reflect.typeOf
 
 //var n5: Int
 //n5 = 10  // 대입연산자가 단독으로 함수밖에서 사용 불가
@@ -38,7 +40,22 @@ fun main() {
     //kotlin에서는 Char가 이항 연산되면 숫자가 아니라 Char타입 출력
     println("c1 + 1 : " + (c1 + 1))
     println(c1.toInt())
-    if(c1 == 98.toChar()) println("같습니다.")
+    if (c1 == 98.toChar()) println("같습니다.")
+    val str1 = "Hello \n world"
+    val str2 = """
+        hello
+        world
+    """
+    println("str1: $str1")
+    println("str2: $str2")
+    fun sum(no: Int): Int {
+        var sum = 0
+        for (i in 1..no) sum += i
+        return sum
+    }
+
+    val name: String = "LGH"
+    println("name: $name, sum: ${sum(10)}")
 
     var b1: Byte = 100
     var s1: Short = 100
@@ -74,4 +91,38 @@ fun main() {
 
     data3 = "late initiate"
     println(data4) // lazy
+
+    // 1. Any 코틀린에서 최상위 클래스
+    var data10: Any
+    data10 = 10
+    typePrint(data10)
+    var data11: Any = "Hello"
+
+    class User
+    var data12: Any = User()
+    typePrint(data12)
+
+    // 2. Unit 특수한 상황을 표현하기 위한 목적
+    val data13: Unit = Unit
+
+    // fun some() { //함수의 리턴타입을 쓰지않으면 Unit이 됨.
+    fun some(): Unit {
+        println(10 + 20)
+    }
+
+    // 3. Nothing //null 또는 예외를 반환할 경우
+    val nullableVal: String? = null
+//    val value = nullableVal ?: throw IllegalStateException()
+    val value = nullableVal ?: "null"
+    println(value)
+
+    val data14: Nothing? = null
+    typePrint(data14)
+    fun some1(): Nothing {
+        throw IllegalStateException()
+    }
+    fun some2(): Nothing? {
+        return null
+    }
+
 }
