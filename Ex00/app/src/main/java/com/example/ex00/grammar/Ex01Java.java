@@ -1,6 +1,6 @@
 package com.example.ex00.grammar;
 
-public class Ex01VariableJava {
+public class Ex01Java {
     public void printJava() {
         System.out.println("Hello world");
     }
