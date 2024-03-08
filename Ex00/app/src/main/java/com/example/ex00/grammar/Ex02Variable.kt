@@ -1,6 +1,7 @@
 package com.example.ex00.grammar
 
 import com.example.ex00.util.typePrint
+import com.example.ex00.util.typePrintOld
 import java.lang.IllegalStateException
 import kotlin.reflect.typeOf
 
@@ -102,7 +103,7 @@ fun main() {
     var data12: Any = User()
     typePrint(data12)
 
-    // 2. Unit 특수한 상황을 표현하기 위한 목적
+    // 2. Unit 특수한 상황을 표현하기 위한 목적 자바의 void와 같음
     val data13: Unit = Unit
 
     // fun some() { //함수의 리턴타입을 쓰지않으면 Unit이 됨.
@@ -110,16 +111,28 @@ fun main() {
         println(10 + 20)
     }
 
-    // 3. Nothing //null 또는 예외를 반환할 경우
-    val nullableVal: String? = null
-    val value = nullableVal ?: throw IllegalStateException()
+    // 3. null 허용과 불허용
+    var data20: Int = 10
+//    data20 = null // 에러 발생
+    var data21: Int? = 10
+    data21 = null   // 에러 없음
 
+    // 4. Nothing //리턴없는 Unit에다가 null 또는 예외를 추가해서 반환할 경우
+    val nullableVal: String? = null
+//    val value1 = nullableVal ?: throw IllegalStateException()
+
+//    nullableVal?는 null을 허용하는 변수라서 null이면 return 해서 종료
+//    val value2 = nullableVal?.toInt() ?: return
+//    typePrintOld(value2)
+
+    println("================================")
     val data14: Nothing? = null
     typePrint(data14)
-    fun some1(): Nothing {
+
+    fun some1(): Nothing { // Nothing 이지만 예외를 반환
         throw IllegalStateException()
     }
-    fun some2(): Nothing? {
+    fun some2(): Nothing? { // Nothing 이지만 null을 반환
         return null
     }
 
