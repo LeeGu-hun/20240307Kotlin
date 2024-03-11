@@ -15,19 +15,13 @@ import com.example.ex00.ui.theme.Ex00Theme
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
-        /*if (v?.id == R.id.button) callz()
-        else if(v?.id == R.id.textView) callz() */
+        /*if (v?.id == R.id.button) callz(this)
+        else if(v?.id == R.id.textView) callz(this)*/
 
         when (v?.id) {
-            R.id.button -> callz()
-            R.id.textView -> callz()
+            R.id.button -> callz(this)
+            R.id.textView -> callz(this)
         }
-    }
-    fun callz(): Unit {
-        Log.d(">>", "onClicked")
-        Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
-        val textView = findViewById<TextView>(R.id.textView)
-        textView.setText("you clicked")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,19 +35,15 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         /*button.setOnClickListener(
             View.OnClickListener(
                 fun(it: View) {
-                    Log.d(">>", "onClicked")
-                    Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
-                    textView.setText("you clicked")
+                    callz(this@MainActivity)
                 }
             )
         )*/
 
         // SAM(single abstract method) 인터페이스를 간단하게 사용 위한 기법
-        /*button.setOnClickListener {
-            Log.d(">>", "onClicked")
-            Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
-            textView.setText("you clicked")
-        }*/
+//        button.setOnClickListener {
+//            callz(this@MainActivity)
+//        }
 
 //        button.setOnClickListener(MyEventHandler(this))
 //        textView.setOnClickListener(MyEventHandler(this))
@@ -72,7 +62,12 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
     }
 }
 
-
+fun callz(mainActivity: MainActivity): Unit {
+    Log.d(">>", "onClicked")
+    Toast.makeText(mainActivity, "Hello", Toast.LENGTH_LONG).show()
+    val textView = mainActivity.findViewById<TextView>(R.id.textView)
+    textView.setText("you clicked")
+}
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -89,24 +84,17 @@ fun GreetingPreview() {
 }
 
 class MyEventHandler : View.OnClickListener {
-    lateinit var mainActivity:ComponentActivity
-    constructor(mainActivity: MainActivity) {
+    var mainActivity:MainActivity?
+    constructor(mainActivity: MainActivity?) {
         this.mainActivity = mainActivity
     }
-    fun callz(): Unit {
-        Log.d(">>", "onClicked")
-        Toast.makeText(mainActivity, "Hello", Toast.LENGTH_LONG).show()
-        val textView = mainActivity.findViewById<TextView>(R.id.textView)
-        textView.setText("you clicked")
-    }
-
     override fun onClick(v: View?) {
-        /*if (v?.id == R.id.button) callz()
-        else if(v?.id == R.id.textView) callz() */
+        /*if (v?.id == R.id.button) callz(mainActivity as MainActivity)
+        else if(v?.id == R.id.textView) callz(mainActivity as MainActivity) */
 
         when (v?.id) {
-            R.id.button -> callz()
-            R.id.textView -> callz()
+            R.id.button -> callz(mainActivity as MainActivity)
+            R.id.textView -> callz(mainActivity as MainActivity)
         }
     }
 }
