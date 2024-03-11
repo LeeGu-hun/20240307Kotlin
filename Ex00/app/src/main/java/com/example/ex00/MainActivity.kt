@@ -15,16 +15,14 @@ import com.example.ex00.ui.theme.Ex00Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        /*setContent {
+        setContent {
             Ex00Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     Greeting("Android")
                 }
             }
-        }*/
-
+        }
     }
 }
 
