@@ -63,10 +63,10 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
 }
 
 fun callz(mainActivity: MainActivity): Unit {
-    Log.d(">>", "onClicked")
     Toast.makeText(mainActivity, "Hello", Toast.LENGTH_LONG).show()
     val textView = mainActivity.findViewById<TextView>(R.id.textView)
-    textView.setText("you clicked")
+    textView.setText("you clicked ${textView.text}")
+    Log.d(">>", "onClicked ${textView.text}")
 }
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
