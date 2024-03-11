@@ -54,8 +54,8 @@ class MainActivity : ComponentActivity() {
             textView.setText("you clicked")
         }*/
 
-        button.setOnClickListener(MyEventHandler())
-        textView.setOnClickListener(MyEventHandler())
+        button.setOnClickListener(MyEventHandler(this))
+        textView.setOnClickListener(MyEventHandler(this))
 
 
         // setContent는 순수하게 자바 소스코드로 액티비티를 생성할 때
@@ -87,17 +87,20 @@ fun GreetingPreview() {
 }
 
 class MyEventHandler : View.OnClickListener {
+    lateinit var mainActivity:ComponentActivity
+    constructor(mainActivity: MainActivity) {
+        this.mainActivity = mainActivity
+    }
+
     override fun onClick(v: View?) {
         /*if (v?.id == R.id.button) {
-            MainActivity().clickz()
         } else if(v?.id == R.id.textView) {
-            MainActivity().clickz()
         }*/
         when (v?.id) {
             R.id.button -> {
                 Log.d(">>", "onClicked")
-                Toast.makeText(MainActivity().applicationContext, "Hello", Toast.LENGTH_LONG).show()
-                val textView = MainActivity().findViewById<TextView>(R.id.textView)
+                Toast.makeText(mainActivity, "Hello", Toast.LENGTH_LONG).show()
+                val textView = mainActivity.findViewById<TextView>(R.id.textView)
                 textView.setText("you clicked")
             }
 //            R.id.textView ->
