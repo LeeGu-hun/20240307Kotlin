@@ -4,30 +4,31 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.CompoundButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.ex00.ui.theme.Ex00Theme
 
-class MainActivity : ComponentActivity() {
-//    override fun onClick(v: View?) {
-//
-//    }
-    /*fun clickz(): Unit {
+class MainActivity : ComponentActivity(), View.OnClickListener {
+    override fun onClick(v: View?) {
+        /*if (v?.id == R.id.button) callz()
+        else if(v?.id == R.id.textView) callz() */
+
+        when (v?.id) {
+            R.id.button -> callz()
+            R.id.textView -> callz()
+        }
+    }
+    fun callz(): Unit {
         Log.d(">>", "onClicked")
-        Toast.makeText(applicationContext, "Hello", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
         val textView = findViewById<TextView>(R.id.textView)
         textView.setText("you clicked")
-    }*/
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +55,10 @@ class MainActivity : ComponentActivity() {
             textView.setText("you clicked")
         }*/
 
-        button.setOnClickListener(MyEventHandler(this))
-        textView.setOnClickListener(MyEventHandler(this))
-
+//        button.setOnClickListener(MyEventHandler(this))
+//        textView.setOnClickListener(MyEventHandler(this))
+        button.setOnClickListener(this)
+        textView.setOnClickListener(this)
 
         // setContent는 순수하게 자바 소스코드로 액티비티를 생성할 때
         /*setContent {
@@ -91,19 +93,20 @@ class MyEventHandler : View.OnClickListener {
     constructor(mainActivity: MainActivity) {
         this.mainActivity = mainActivity
     }
+    fun callz(): Unit {
+        Log.d(">>", "onClicked")
+        Toast.makeText(mainActivity, "Hello", Toast.LENGTH_LONG).show()
+        val textView = mainActivity.findViewById<TextView>(R.id.textView)
+        textView.setText("you clicked")
+    }
 
     override fun onClick(v: View?) {
-        /*if (v?.id == R.id.button) {
-        } else if(v?.id == R.id.textView) {
-        }*/
+        /*if (v?.id == R.id.button) callz()
+        else if(v?.id == R.id.textView) callz() */
+
         when (v?.id) {
-            R.id.button -> {
-                Log.d(">>", "onClicked")
-                Toast.makeText(mainActivity, "Hello", Toast.LENGTH_LONG).show()
-                val textView = mainActivity.findViewById<TextView>(R.id.textView)
-                textView.setText("you clicked")
-            }
-//            R.id.textView ->
+            R.id.button -> callz()
+            R.id.textView -> callz()
         }
     }
 }
