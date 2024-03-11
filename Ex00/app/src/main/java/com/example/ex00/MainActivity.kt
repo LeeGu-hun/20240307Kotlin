@@ -20,14 +20,14 @@ import com.example.ex00.ui.theme.Ex00Theme
 
 class MainActivity : ComponentActivity() {
 //    override fun onClick(v: View?) {
-//        TODO("Not yet implemented")
+//
 //    }
-    fun clickz(): Unit {
+    /*fun clickz(): Unit {
         Log.d(">>", "onClicked")
-        Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, "Hello", Toast.LENGTH_LONG).show()
         val textView = findViewById<TextView>(R.id.textView)
         textView.setText("you clicked")
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,19 +40,22 @@ class MainActivity : ComponentActivity() {
         /*button.setOnClickListener(
             View.OnClickListener(
                 fun(it: View) {
-                    clickz()
+                    Log.d(">>", "onClicked")
+                    Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
+                    textView.setText("you clicked")
                 }
             )
         )*/
 
         // SAM(single abstract method) 인터페이스를 간단하게 사용 위한 기법
         /*button.setOnClickListener {
-            clickz()
+            Log.d(">>", "onClicked")
+            Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_LONG).show()
+            textView.setText("you clicked")
         }*/
 
         button.setOnClickListener(MyEventHandler())
         textView.setOnClickListener(MyEventHandler())
-
 
 
         // setContent는 순수하게 자바 소스코드로 액티비티를 생성할 때
@@ -83,16 +86,21 @@ fun GreetingPreview() {
     }
 }
 
-class MyEventHandler : View.OnClickListener{
+class MyEventHandler : View.OnClickListener {
     override fun onClick(v: View?) {
         /*if (v?.id == R.id.button) {
             MainActivity().clickz()
         } else if(v?.id == R.id.textView) {
             MainActivity().clickz()
         }*/
-        when (v?.id){
-            R.id.button -> MainActivity().clickz()
-            R.id.textView -> MainActivity().clickz()
+        when (v?.id) {
+            R.id.button -> {
+                Log.d(">>", "onClicked")
+                Toast.makeText(MainActivity().applicationContext, "Hello", Toast.LENGTH_LONG).show()
+                val textView = MainActivity().findViewById<TextView>(R.id.textView)
+                textView.setText("you clicked")
+            }
+//            R.id.textView ->
         }
     }
 }
