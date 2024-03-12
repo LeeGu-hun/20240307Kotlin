@@ -47,13 +47,13 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             findViewById<Button>(R.id.button5),
         )
         val captions = arrayOf<String>(".", "0", "C", "1","2","3","4","5","6","7","8","9")
-        for ((idx, value) in captions.withIndex()) {
-            btns[idx].text = captions[idx]
-            btns[idx].setOnClickListener {
-                if(btns[idx].text == "C"){
+        for ((i, value) in captions.withIndex()) {
+            btns[i].text = value
+            btns[i].setOnClickListener {
+                if(btns[i].text == "C"){
                     textView.text = ""
                 } else {
-                    textView.text = textView.text.toString() + btns[idx].text
+                    textView.text = textView.text.toString() + btns[i].text
                 }
             }
         }
