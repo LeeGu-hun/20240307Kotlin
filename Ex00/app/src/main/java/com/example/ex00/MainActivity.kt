@@ -50,21 +50,15 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         /*for ((i, value) in captions.withIndex()) {
             btns[i].text = value
             btns[i].setOnClickListener {
-                if (btns[i].text == "C") {
-                    textView.text = ""
-                } else {
-                    textView.text = textView.text.toString() + btns[i].text
-                }
+                if (btns[i].text == "C") textView.text = ""
+                else textView.text = textView.text.toString() + btns[i].text
             }
         }*/
         for ((i, btn) in btns.withIndex()) {
             btn.text = captions[i]
             btn.setOnClickListener {
-                if (btn.text == "C") {
-                    textView.text = ""
-                } else {
-                    textView.text = textView.text.toString() + btn.text
-                }
+                if (btn.text == "C") textView.text = ""
+                else textView.text = textView.text.toString() + btn.text
             }
         }
         /*button.setOnClickListener(
