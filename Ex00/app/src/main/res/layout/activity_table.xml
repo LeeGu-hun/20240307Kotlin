@@ -146,5 +146,6 @@
                 android:textSize="24sp" />
         </TableRow>
     </TableLayout>
+<!--출처: https://recipes4dev.tistory.com/138 -->
 
 </LinearLayout>
