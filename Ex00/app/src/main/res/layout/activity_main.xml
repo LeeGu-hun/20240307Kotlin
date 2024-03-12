@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,18 +8,210 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F180CB"
+        android:layout_height="100dp"
+        android:background="#FFF180CB"
+        android:gravity="center"
         android:text="My App"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
-    <Button
-        android:id="@+id/button"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:textSize="30sp" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="확인"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="취소"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="호출"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical">
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical">
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#070101"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:height="100dp"
+                android:background="#E4E4E4"
+                android:text="Button"
+                android:textColor="#000000"
+                android:textSize="30sp" />
+        </TableRow>
+
+    </TableLayout>
+
 </LinearLayout>

@@ -20,6 +20,12 @@ class Member {
 }
 
 class Tv2 {
+    static {
+
+    }
+    {
+
+    }
     private int channel, volume;
     public Tv2(int channel, int volume) {
         if(channel > 0) this.channel = channel;

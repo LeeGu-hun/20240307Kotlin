@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         else if(v?.id == R.id.textView) callz(this)*/
 
         when (v?.id) {
-            R.id.button -> callz(this)
+            R.id.btnConfirm -> callz(this)
             R.id.textView -> callz(this)
         }
     }
@@ -29,9 +29,34 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         // xml로 액티비티를 생성할 때 객체 R에 자동 등록
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.button)
+        val button = findViewById<Button>(R.id.btnConfirm)
         val textView = findViewById<TextView>(R.id.textView)
 
+        var btns = arrayOf<Button>(
+            findViewById<Button>(R.id.button13),
+            findViewById<Button>(R.id.button14),
+            findViewById<Button>(R.id.button15),
+            findViewById<Button>(R.id.button10),
+            findViewById<Button>(R.id.button11),
+            findViewById<Button>(R.id.button12),
+            findViewById<Button>(R.id.button7),
+            findViewById<Button>(R.id.button8),
+            findViewById<Button>(R.id.button9),
+            findViewById<Button>(R.id.button3),
+            findViewById<Button>(R.id.button4),
+            findViewById<Button>(R.id.button5),
+        )
+        val captions = arrayOf<String>(".", "0", "C", "1","2","3","4","5","6","7","8","9")
+        for ((idx, value) in captions.withIndex()) {
+            btns[idx].text = captions[idx]
+            btns[idx].setOnClickListener {
+                if(btns[idx].text == "C"){
+                    textView.text = ""
+                } else {
+                    textView.text = textView.text.toString() + btns[idx].text
+                }
+            }
+        }
         /*button.setOnClickListener(
             View.OnClickListener(
                 fun(it: View) {
@@ -93,7 +118,7 @@ class MyEventHandler : View.OnClickListener {
         else if(v?.id == R.id.textView) callz(mainActivity as MainActivity) */
 
         when (v?.id) {
-            R.id.button -> callz(mainActivity as MainActivity)
+            R.id.btnConfirm -> callz(mainActivity as MainActivity)
             R.id.textView -> callz(mainActivity as MainActivity)
         }
     }

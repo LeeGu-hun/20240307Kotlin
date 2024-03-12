@@ -11,12 +11,12 @@ class Person3(val name: String) //getter O, setter X
 class Person4(name2: String){
     // 주생성자의 매개변수가 var,val이 없기 때문에 초기화 사용가능, 전역변수는 불가
     var name2: String
-    init {
-        this.name2 = name2
-        println("Person4 name : $name2")
+    init {  // 인스턴스 생성시 실행
+        this.name2 = name2 // 전역변수화
+        println("Person4 init name : $name2")
     }
-    fun some(): Unit {
-        println("Person4 name : $name2")
+    fun some(): Unit { // 사용할 시점에 호출
+        println("Person4 some name : $name2")
     }
 }
 
@@ -27,7 +27,7 @@ fun main() {
     val p2 = Person2("LGH")
     val p3 = Person3("LGH")
     val p4 = Person4("GH")
-//    p4.some()
+    p4.some()
     println(p)
     println(p1) //getter와 setter 없음
     println(p2.name) //getter
