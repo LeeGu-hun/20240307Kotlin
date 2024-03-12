@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:stretchColumns="*"
-        android:shrinkColumns="*">
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
         <TableRow>
 
@@ -18,8 +19,8 @@
                 android:layout_span="7"
                 android:background="#00BCD4"
                 android:gravity="center"
-                android:textSize="32sp"
-                android:text="TITLE" />
+                android:text="TITLE"
+                android:textSize="32sp" />
 
         </TableRow>
 
@@ -28,38 +29,44 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="1" />
+                android:text="1"
+                android:textSize="16sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="2" />
+                android:text="2"
+                android:textSize="16sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="3" />
+                android:text="3"
+                android:textSize="16sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="4" />
+                android:text="4"
+                android:textSize="16sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="5" />
+                android:text="5"
+                android:textSize="16sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="6" />
+                android:text="6"
+                android:textSize="16sp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="7" />
+                android:text="7"
+                android:textSize="16sp" />
 
         </TableRow>
 
@@ -68,73 +75,75 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/image1"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
-                android:background="#FFC107"
-                android:id="@+id/image1" />
+                android:background="#FFC107" />
 
             <Button
+                android:id="@+id/text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text2"
                 android:layout_toRightOf="@id/image1"
                 android:text="INSERT" />
 
             <Button
+                android:id="@+id/text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text3"
                 android:layout_below="@id/text2"
                 android:layout_alignLeft="@id/text2"
                 android:text="MODIFY" />
 
             <Button
+                android:id="@+id/text4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/text4"
                 android:layout_below="@id/text3"
                 android:layout_alignLeft="@id/text2"
                 android:text="DELETE" />
         </RelativeLayout>
 
-        <TableRow
-            android:layout_marginTop="4dp">
+        <TableRow android:layout_marginTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:background="#8BC34A"
-                android:textSize="24sp"
                 android:gravity="center"
-                android:text="ITEM-1" />
+                android:text="ITEM-1"
+                android:textSize="24sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="5"
                 android:background="#CDDC39"
-                android:textSize="24sp"
                 android:gravity="center"
-                android:text="DESC-1" />
+                android:text="DESC-1"
+                android:textSize="24sp" />
         </TableRow>
 
-        <TableRow
-            android:layout_marginTop="4dp">
+        <TableRow android:layout_marginTop="4dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:background="#8BC34A"
-                android:textSize="24sp"
                 android:gravity="center"
-                android:text="ITEM-2" />
+                android:text="ITEM-2"
+                android:textSize="24sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="5"
                 android:background="#CDDC39"
-                android:textSize="24sp"
                 android:gravity="center"
-                android:text="DESC-2" />
+                android:text="DESC-2"
+                android:textSize="24sp" />
         </TableRow>
     </TableLayout>
 
