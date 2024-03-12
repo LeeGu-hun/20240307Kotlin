@@ -46,14 +46,24 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             findViewById<Button>(R.id.button4),
             findViewById<Button>(R.id.button5),
         )
-        val captions = arrayOf<String>(".", "0", "C", "1","2","3","4","5","6","7","8","9")
-        for ((i, value) in captions.withIndex()) {
+        val captions = arrayOf<String>(".", "0", "C", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+        /*for ((i, value) in captions.withIndex()) {
             btns[i].text = value
             btns[i].setOnClickListener {
-                if(btns[i].text == "C"){
+                if (btns[i].text == "C") {
                     textView.text = ""
                 } else {
                     textView.text = textView.text.toString() + btns[i].text
+                }
+            }
+        }*/
+        for ((i, btn) in btns.withIndex()) {
+            btn.text = captions[i]
+            btn.setOnClickListener {
+                if (btn.text == "C") {
+                    textView.text = ""
+                } else {
+                    textView.text = textView.text.toString() + btn.text
                 }
             }
         }
@@ -93,6 +103,7 @@ fun callz(mainActivity: MainActivity): Unit {
     textView.setText("you clicked ${textView.text}")
     Log.d(">>", "onClicked ${textView.text}")
 }
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -109,10 +120,12 @@ fun GreetingPreview() {
 }
 
 class MyEventHandler : View.OnClickListener {
-    var mainActivity:MainActivity?
+    var mainActivity: MainActivity?
+
     constructor(mainActivity: MainActivity?) {
         this.mainActivity = mainActivity
     }
+
     override fun onClick(v: View?) {
         /*if (v?.id == R.id.button) callz(mainActivity as MainActivity)
         else if(v?.id == R.id.textView) callz(mainActivity as MainActivity) */
