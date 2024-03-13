@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Ex00"
         tools:targetApi="31">
         <activity
+            android:name=".FrameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConstraintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RelativeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
