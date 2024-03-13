@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/pic1"
+            android:id="@+id/btnPic1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -22,7 +22,7 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/pic2"
+            android:id="@+id/btnPic2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/pic3"
+            android:id="@+id/btnPic3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
