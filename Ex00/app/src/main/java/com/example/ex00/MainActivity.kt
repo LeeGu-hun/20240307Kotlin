@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             R.id.btnMv3 -> {
                 val intent = Intent(this@MainActivity, TableActivity::class.java)
                 startActivity(intent)
+//                finish() // 호출한 액티비티(MainActivity) 종료할 때
             }
 
             R.id.btnMv4 -> {

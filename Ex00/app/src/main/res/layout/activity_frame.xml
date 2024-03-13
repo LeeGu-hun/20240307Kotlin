@@ -44,21 +44,21 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/img1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
             app:srcCompat="@drawable/apple" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
             app:srcCompat="@drawable/mango" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/img3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
