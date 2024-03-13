@@ -15,17 +15,31 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.ex00.ui.theme.Ex00Theme
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
-    override fun onClick(v: View?) {
-        /*if (v?.id == R.id.button) callz(this)
+    override fun onClick(v: View?) {/*if (v?.id == R.id.button) callz(this)
         else if(v?.id == R.id.textView) callz(this)*/
 
         when (v?.id) {
             R.id.btnConfirm -> callz(this)
             R.id.textView -> callz(this)
-            R.id.btnMv1 -> startActivity(Intent(this@MainActivity, ConstraintActivity::class.java))
-            R.id.btnMv2 -> startActivity(Intent(this@MainActivity, RelativeActivity::class.java))
-            R.id.btnMv3 -> startActivity(Intent(this@MainActivity, TableActivity::class.java))
-            R.id.btnMv4 -> startActivity(Intent(this@MainActivity, FrameActivity::class.java))
+            R.id.btnMv1 -> {
+                val intent = Intent(this@MainActivity, ConstraintActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnMv2 -> {
+                val intent = Intent(this@MainActivity, RelativeActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnMv3 -> {
+                val intent = Intent(this@MainActivity, TableActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnMv4 -> {
+                val intent = Intent(this@MainActivity, FrameActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -59,8 +73,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
             findViewById<Button>(R.id.button4),
             findViewById<Button>(R.id.button5),
         )
-        val captions = arrayOf<String>(".", "0", "C", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        /*for ((i, value) in captions.withIndex()) {
+        val captions = arrayOf<String>(".", "0", "C", "1", "2", "3", "4", "5", "6", "7", "8", "9")/*for ((i, value) in captions.withIndex()) {
             btns[i].text = value
             btns[i].setOnClickListener {
                 if (btns[i].text == "C") textView.text = ""
@@ -73,8 +86,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                 if (btn.text == "C") textView.text = ""
                 else textView.text = textView.text.toString() + btn.text
             }
-        }
-        /*button.setOnClickListener(
+        }/*button.setOnClickListener(
             View.OnClickListener(
                 fun(it: View) {
                     callz(this@MainActivity)
@@ -133,8 +145,7 @@ class MyEventHandler : View.OnClickListener {
         this.mainActivity = mainActivity
     }
 
-    override fun onClick(v: View?) {
-        /*if (v?.id == R.id.button) callz(mainActivity as MainActivity)
+    override fun onClick(v: View?) {/*if (v?.id == R.id.button) callz(mainActivity as MainActivity)
         else if(v?.id == R.id.textView) callz(mainActivity as MainActivity) */
 
         when (v?.id) {
