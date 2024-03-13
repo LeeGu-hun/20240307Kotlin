@@ -1,5 +1,6 @@
 package com.example.ex00
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -21,6 +22,10 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.btnConfirm -> callz(this)
             R.id.textView -> callz(this)
+            R.id.btnMv1 -> startActivity(Intent(this@MainActivity, ConstraintActivity::class.java))
+            R.id.btnMv2 -> startActivity(Intent(this@MainActivity, RelativeActivity::class.java))
+            R.id.btnMv3 -> startActivity(Intent(this@MainActivity, TableActivity::class.java))
+            R.id.btnMv4 -> startActivity(Intent(this@MainActivity, FrameActivity::class.java))
         }
     }
 
@@ -31,6 +36,14 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
 
         val button = findViewById<Button>(R.id.btnConfirm)
         val textView = findViewById<TextView>(R.id.textView)
+        val btnMv1 = findViewById<Button>(R.id.btnMv1)
+        val btnMv2 = findViewById<Button>(R.id.btnMv2)
+        val btnMv3 = findViewById<Button>(R.id.btnMv3)
+        val btnMv4 = findViewById<Button>(R.id.btnMv4)
+        btnMv1.setOnClickListener(this)
+        btnMv2.setOnClickListener(this)
+        btnMv3.setOnClickListener(this)
+        btnMv4.setOnClickListener(this)
 
         var btns = arrayOf<Button>(
             findViewById<Button>(R.id.button13),

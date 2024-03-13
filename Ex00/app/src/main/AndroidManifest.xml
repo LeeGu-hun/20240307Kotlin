@@ -16,6 +16,9 @@
             android:name=".FrameActivity"
             android:exported="false" />
         <activity
+            android:name=".TableActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConstraintActivity"
             android:exported="false" />
         <activity
