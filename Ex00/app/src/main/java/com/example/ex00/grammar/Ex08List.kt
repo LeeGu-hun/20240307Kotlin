@@ -70,6 +70,7 @@ fun main() {
     val linkedList:LinkedList<Int> = LinkedList() //변수명을 queue 선언해도 됨
     linkedList.add(100);linkedList.add(200);linkedList.add(300);//원소추가
     linkedList.pop() // 맨앞에 원소 삭제
+    linkedList.removeAt(0) // 맨앞에 원소 삭제
     println("linkedList.peek(): ${linkedList.peek()}") // 맨앞의 원소 확인
     println("linkedList: $linkedList")
 
@@ -78,8 +79,12 @@ fun main() {
     val stack:Stack<Int> = Stack<Int>()
     stack.add(1);stack.add(2);stack.add(3);
     stack.pop(); //맨끝에 원소 삭제
+    stack.removeAt(stack.size-1) //맨끝에 원소삭제
     println("stack.peek(): ${stack.peek()}") // 맨끝의 원소 확인
     println("stack: $stack")
+
+    // Array, List, mutableList, ArrayList, LinkedList, Stack등은
+    // List의 특징으로 서로 교차 구현 가능함.
 }
 
 
