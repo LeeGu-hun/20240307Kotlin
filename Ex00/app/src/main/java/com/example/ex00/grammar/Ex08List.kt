@@ -6,9 +6,10 @@ import com.example.ex00.util.listPrint
 // List 순서가 있음. 중복은 허용
 // List , MutableList
 
-//1. List : 불변
+
 var list:List<Int> = listOf(10,20,30)
 fun main() {
+    //1. List : 불변
     var list:List<Int> = listOf(40,50,60)
     println("0번째 ${list[0]}")
 
@@ -36,6 +37,7 @@ fun main() {
     println("min: ${list1.min()}")
     println("sort: ${list1.sorted()}")
 
+    //2. mutableList : 가변
     var lotto = mutableListOf<Int>()
     while (lotto.size < 6) {
         val ball = getRand(1, 45)
