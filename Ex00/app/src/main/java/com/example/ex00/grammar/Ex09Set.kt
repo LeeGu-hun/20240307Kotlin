@@ -71,7 +71,7 @@ fun main() {
     val stdSet = HashSet<Student>()
     stdSet.add(Student(1, "LGH"))
     stdSet.add(Student(2, "LG"))
-    stdSet.add(Student(1, "GH"))
+    stdSet.add(Student(1, "LGH"))
     println(stdSet.toString())
 }
 
@@ -87,7 +87,19 @@ class Student(stdNo: Int, stdName: String) {
     }
 
     override fun equals(other: Any?): Boolean {
-        return super.equals(other)
+        // other가 Student타입이 아니면 null 반환
+        // 'val student = other as? Student'가 null이면
+        // return false 처리함.
+        val student = other as? Student ?: return false
+        return student.stdNo == this.stdNo
+                && student.stdName == this.stdName
+    }
+
+    // Any는 hashCode()에 해당 메모리주소값을 반환한다. 그러면
+    // 인스턴스의 메모리 주소값이 다르기 때문에 내용은 같지만
+    // 다르다고 본다. 그래서 hashCode() 값을 동일하게 하는 것
+    override fun hashCode(): Int {
+        return 5 //responseCode 같은 개념. 5는 임의의 수
     }
 }
 
