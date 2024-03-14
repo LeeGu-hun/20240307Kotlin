@@ -62,9 +62,33 @@ fun main() {
 
     // TreeSet
     val treeSet: TreeSet<Any> = TreeSet()
-    
+    while (treeSet.size < 6) {
+        val ball = getRand(1, 45)
+        treeSet.add(ball)
+    }
+    println("treeSet 로또: $treeSet")
 
+    val stdSet = HashSet<Student>()
+    stdSet.add(Student(1, "LGH"))
+    stdSet.add(Student(2, "LG"))
+    stdSet.add(Student(1, "GH"))
+    println(stdSet.toString())
+}
 
+class Student(stdNo: Int, stdName: String) {
+    var stdNo: Int
+    var stdName: String
+    init {
+        this.stdNo = stdNo
+        this.stdName = stdName
+    }
+    override fun toString(): String {
+        return "번호: $stdNo, 이름: $stdName"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
 }
 
 
