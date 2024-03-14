@@ -10,3 +10,17 @@ fun typePrint(x: Any?) {
         println("type: ${x::class.simpleName}")
     }
 }
+fun getRand(d1: Int, d2: Int): Int {
+    var result = (Math.random() * d2).toInt()
+    if (d1 != 0) result = result + 1
+    return result
+}
+
+fun listPrint(list: List<Any>): Unit {
+    print("[")
+    for (i in 0..list.size - 1) {
+        if (i!=0) print(",")
+        print(list.get(i))
+    }
+    println("]")
+}
