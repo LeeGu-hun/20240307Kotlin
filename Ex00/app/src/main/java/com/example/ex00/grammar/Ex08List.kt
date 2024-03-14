@@ -12,7 +12,7 @@ import java.util.Stack
 var list: List<Int> = listOf(10, 20, 30)
 fun main() {
     //1. List : 불변
-    var list: List<Int> = listOf(40, 50, 60)
+    var list: List<Any> = listOf(40, 50, 60, "hello")
     println("0번째 ${list[0]}")
 
 //    list는 추가와 수정 안됨 :: 불변
