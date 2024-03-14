@@ -7,15 +7,18 @@ fun main() {
     // 1. Map은 key, value를 한쌍으로 다룬다.
     // 특징 :: key는 순서 없고 중복 불허, value는 순서 없고 중복 허용
     // val map = Map<Any, Any>() //에러 발생 Map은 interface
+    // 키 값이 중복 될 경우 value에 상관 없이 덮어 쓴다.
     var pair: Pair<Any, Any> = "c" to "cherry"
     val map1 = mapOf("a" to "apple", "b" to "banana", pair)
     println("immutable map1 : $map1")
 
-    var map2 = mutableMapOf(pair, "d" to Student(1,"LGH"), pair)
-    map2.put("e", 200)
-    map2.put("f", "fine")
-    map2.put("g", Student(1,"LG"))
-    map2["h"] = "hello"
+    var map2 = mutableMapOf("a" to Student(1,"LGH"), pair, pair)
+    map2.put("b", 200)
+    map2.put("c", "fine")
+    map2.put("b", Student(1,"LG"))
+    map2.remove("b")   //제거
+    println(map2.get("a")) //가져오기
+    map2["d"] = "hello"    //입력
     println("mutable map2 : $map2")
 
     map2.forEach({ k, v -> println("$k 의 값은 $v 이다.") })

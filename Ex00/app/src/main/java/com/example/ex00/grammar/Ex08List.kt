@@ -40,6 +40,7 @@ fun main() {
     println("min: ${list1.min()}")
     println("sort: ${list1.sorted()}")
 
+
     //2. mutableList : 가변
     var lotto = mutableListOf<Int>()
     while (lotto.size < 6) {
@@ -62,10 +63,14 @@ fun main() {
     println("로또 번호: $lotto")
 
     // ArrayList
-    val arrayList1 : ArrayList<Int> = arrayListOf(1,2,3)
+    val arrayList1 : ArrayList<Int> = arrayListOf(1,2,3,4,5)
     val arrayList2 : ArrayList<Int> = ArrayList()
-    arrayList2.add(100);arrayList2.add(100);arrayList2.add(100)
+    arrayList2.add(4);arrayList2.add(5);arrayList2.add(6)
     println("arrayList2: $arrayList2")
+    val sub_list1 = arrayList1.subList(2, 4)
+    println("arrayList1.subList(2, 4): ${sub_list1}")
+    println("retainAll: ${arrayList1.retainAll(arrayList2)}")
+
 
     // Queue :: LinkedList를 활용
     val linkedList:LinkedList<Int> = LinkedList() //변수명을 queue 선언해도 됨
