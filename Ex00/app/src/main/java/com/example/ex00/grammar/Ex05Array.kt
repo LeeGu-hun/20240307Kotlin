@@ -13,7 +13,7 @@ var arr02: Array<Int> = arrayOf<Int>(1,2,3,4,5)
 
 fun main() {
     //1. 배열 선언 하기
-    // 1) 선언과 동시에 배열전체를 같은 원소로 초기화
+    // 1) 선언과 동시에 배열 전체를 같은 원소로 초기화
     val arr1: Array<Int> = Array(3, {0})
     println(arr1.contentToString())
 

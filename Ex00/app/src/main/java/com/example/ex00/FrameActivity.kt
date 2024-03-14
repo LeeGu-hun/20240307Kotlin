@@ -7,6 +7,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.DefaultAlpha
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
 
 class FrameActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var imgs: Array<ImageView>
@@ -24,6 +31,17 @@ class FrameActivity : AppCompatActivity(), View.OnClickListener {
             else img.visibility = View.INVISIBLE
         }
     }
+    /*@Composable
+    fun Image(
+        painter: Painter,
+        contentDescription: String?,
+        modifier: Modifier = Modifier,
+        alignment: Alignment = Alignment.Center,
+        contentScale: ContentScale = ContentScale.Fit,
+        alpha: Float = DefaultAlpha,
+        colorFilter: ColorFilter? = null
+    )*/
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
