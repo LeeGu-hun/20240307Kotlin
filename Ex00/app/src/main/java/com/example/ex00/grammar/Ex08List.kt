@@ -12,6 +12,7 @@ import java.util.Stack
 var list: List<Int> = listOf(10, 20, 30)
 fun main() {
     //1. List : 불변
+//    val list1 = List<Any>() //에러 발생 List는 interface
     var list: List<Any> = listOf(40, 50, 60, "hello")
     println("0번째 ${list[0]}")
 
