@@ -6,13 +6,14 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ex00.databinding.ActivityConstraintBinding
-import com.example.ex00.databinding.ActivityMainBinding
 
 class ConstraintActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -35,11 +36,24 @@ class ConstraintActivity : AppCompatActivity() {
         binding.imageButtonClose.setOnClickListener {
             finish()
         }
+        binding.editId.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                Toast.makeText(this, "${binding!!.textView2.text}", Toast.LENGTH_SHORT).show()
+                hideKeyboard(this@ConstraintActivity)
+                return@OnKeyListener true
+            }
+            false
+        })
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
+        when (event?.action) {
+            // rawX, rawY는 스크린, 즉 화면의 좌표값, x, y는 View안의 좌표값
+            MotionEvent.ACTION_DOWN -> Log.d(">>", "Touch down x: ${event.x} , rawX: ${event.rawX}")
+            MotionEvent.ACTION_UP -> Log.d(">>", "Touch up")
+        }
         hideKeyboard(this@ConstraintActivity)
-        return true
+        return super.onTouchEvent(event)
     }
 }
 
