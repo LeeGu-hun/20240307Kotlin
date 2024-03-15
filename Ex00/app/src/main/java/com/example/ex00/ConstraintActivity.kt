@@ -69,6 +69,7 @@ class ConstraintActivity : AppCompatActivity() {
             Toast.makeText(this, "${binding.switch1.text} $isChecked", Toast.LENGTH_SHORT).show()
         }
         val textClock = binding.textClock
+        // 익명 객체 사용 예
         textClock.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
                 Toast.makeText(this@ConstraintActivity, "${textClock.text}", Toast.LENGTH_SHORT)
