@@ -12,22 +12,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
         android:adjustViewBounds="true"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:src="@drawable/apple"
+        app:layout_constraintBottom_toTopOf="@+id/tevWeb"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tevWeb" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
         android:text="아바타"
         android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tevDescrip"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,119 +41,163 @@
         android:layout_marginTop="2dp"
         android:autoLink="web"
         android:text="https://busanit.ac.kr/"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/tevDescrip"
-        android:layout_width="218dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="6dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:text="Programmer, Full Stack, AI, IoTProgrammer, Full Stack, AI, IoTProgrammer, Full Stack, AI, IoT"
-        app:layout_constraintStart_toStartOf="@+id/tevWeb"
-        app:layout_constraintTop_toBottomOf="@+id/tevWeb" />
+        app:layout_constraintBottom_toTopOf="@+id/btnMobile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonClose" />
 
     <Button
         android:id="@+id/btnMobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="46dp"
         android:autoLink="all|phone"
         android:text="01034467374"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tevDescrip"
-        app:layout_constraintTop_toBottomOf="@+id/tevDescrip" />
+        app:layout_constraintTop_toBottomOf="@+id/tevWeb" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="47dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="text"
         android:text=""
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="186dp" />
+        app:layout_constraintEnd_toEndOf="@+id/btnMobile"
+        app:layout_constraintTop_toBottomOf="@+id/btnMobile" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextText"
-        tools:layout_editor_absoluteY="241dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
     <ImageButton
         android:id="@+id/imageButtonClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/btn_dialog"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:autofillHints="안녕"
+        android:adjustViewBounds="true"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_dialog" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="77dp"
+        android:layout_marginBottom="24dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="313dp" >
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintStart_toStartOf="@+id/checkBox">
 
         <RadioButton
             android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="48dp"
             android:focusedByDefault="true"
             android:text="On" />
 
         <RadioButton
             android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="48dp"
             android:text="Off" />
     </RadioGroup>
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
         android:text="여행"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="369dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ratingBar"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
     <CheckBox
         android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="6dp"
         android:text="쇼핑"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="407dp" />
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <CheckBox
         android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
         android:text="문화생활"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="445dp" />
+        app:layout_constraintStart_toStartOf="@+id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="12dp"
         android:text="알림"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="489dp" />
+        app:layout_constraintStart_toStartOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
 
     <Switch
         android:id="@+id/switch1"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="37dp"
+        android:text="Switch"
+        app:layout_constraintBaseline_toBaselineOf="@+id/toggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton" />
+
+    <TextClock
+        android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch"
-        tools:layout_editor_absoluteX="204dp"
-        tools:layout_editor_absoluteY="498dp" />
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

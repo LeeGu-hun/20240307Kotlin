@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class ConstraintActivity : AppCompatActivity() {
@@ -13,6 +14,7 @@ class ConstraintActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_constraint)
         val btnMobile = findViewById<Button>(R.id.btnMobile)
+        val btnImgClose = findViewById<ImageButton>(R.id.imageButtonClose)
         btnMobile.setOnClickListener {
             // 전화에 대한 권한 설정을 해줘야 함.
             // 설정-애플리케이션-해당앱클릭-권한-전화를 on
@@ -21,6 +23,9 @@ class ConstraintActivity : AppCompatActivity() {
             val uriPhoneNumber = Uri.parse("tel:" + tel)
             val intent = Intent(Intent.ACTION_CALL, uriPhoneNumber)
             startActivity(intent)
+        }
+        btnImgClose.setOnClickListener {
+            finish()
         }
     }
 }
