@@ -117,19 +117,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:checkedButton="@id/radioButton"
+        android:checkedButton="@id/rb1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintStart_toStartOf="@+id/cb1">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rb1"
             android:layout_width="70dp"
             android:layout_height="48dp"
             android:text="On" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rb2"
             android:layout_width="70dp"
             android:layout_height="48dp"
             android:text="Off" />
@@ -158,7 +158,7 @@
     <CheckBox
         android:id="@+id/cb3"
         android:layout_width="117dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:layout_marginTop="6dp"
         android:text="문화생활"
         app:layout_constraintStart_toStartOf="@+id/cb2"
@@ -176,8 +176,8 @@
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="80dp"
-        android:layout_height="48dp"
+        android:layout_width="123dp"
+        android:layout_height="58dp"
         android:layout_marginStart="37dp"
         android:text="Switch"
         app:layout_constraintBaseline_toBaselineOf="@+id/toggleButton"
@@ -189,6 +189,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginTop="38dp"
+        android:format24Hour="hh:mm:ss"
         app:layout_constraintStart_toEndOf="@+id/toggleButton"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 

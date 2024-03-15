@@ -45,14 +45,41 @@ class ConstraintActivity : AppCompatActivity() {
             false
         })
         binding.cb1.setOnCheckedChangeListener { cb, isChecked ->
-            Toast.makeText(this, "$isChecked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${binding.cb1.text} $isChecked", Toast.LENGTH_SHORT).show()
         }
         binding.cb2.setOnCheckedChangeListener { cb, isChecked ->
-            Toast.makeText(this, "$isChecked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${binding.cb1.text} $isChecked", Toast.LENGTH_SHORT).show()
         }
         binding.cb3.setOnCheckedChangeListener { cb, isChecked ->
-            Toast.makeText(this, "$isChecked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${binding.cb1.text} $isChecked", Toast.LENGTH_SHORT).show()
         }
+        binding.rb1.setOnCheckedChangeListener { rb, isChecked ->
+            if (isChecked)
+                Toast.makeText(this, "${binding.rb1.text} $isChecked", Toast.LENGTH_SHORT).show()
+        }
+        binding.rb2.setOnCheckedChangeListener { rb, isChecked ->
+            if (isChecked)
+                Toast.makeText(this, "${binding.rb2.text} $isChecked", Toast.LENGTH_SHORT).show()
+        }
+        binding.toggleButton.setOnCheckedChangeListener { tb, isChecked ->
+            Toast.makeText(this, "${binding.toggleButton.text} $isChecked", Toast.LENGTH_SHORT)
+                .show()
+        }
+        binding.switch1.setOnCheckedChangeListener { sw, isChecked ->
+            Toast.makeText(this, "${binding.switch1.text} $isChecked", Toast.LENGTH_SHORT).show()
+        }
+        val textClock = binding.textClock
+        textClock.setOnLongClickListener(object : View.OnLongClickListener {
+            override fun onLongClick(v: View?): Boolean {
+                Toast.makeText(this@ConstraintActivity, "${textClock.text}", Toast.LENGTH_SHORT)
+                    .show()
+                return true
+            }
+        })
+        /*textClock.setOnLongClickListener {
+            Toast.makeText(this@ConstraintActivity, "${textClock.text}", Toast.LENGTH_SHORT).show()
+            true
+        }*/
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
