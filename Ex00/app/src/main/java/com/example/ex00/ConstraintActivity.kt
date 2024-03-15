@@ -44,6 +44,15 @@ class ConstraintActivity : AppCompatActivity() {
             }
             false
         })
+        binding.cb1.setOnCheckedChangeListener { cb, isChecked ->
+            Toast.makeText(this, "$isChecked", Toast.LENGTH_SHORT).show()
+        }
+        binding.cb2.setOnCheckedChangeListener { cb, isChecked ->
+            Toast.makeText(this, "$isChecked", Toast.LENGTH_SHORT).show()
+        }
+        binding.cb3.setOnCheckedChangeListener { cb, isChecked ->
+            Toast.makeText(this, "$isChecked", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
