@@ -75,13 +75,13 @@
         android:id="@+id/editTextText"
         android:layout_width="200dp"
         android:layout_height="48dp"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="47dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="text"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="@+id/btnMobile"
         app:layout_constraintTop_toBottomOf="@+id/btnMobile" />
@@ -91,11 +91,11 @@
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="@+id/editTextText"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
@@ -103,20 +103,21 @@
         android:id="@+id/imageButtonClose"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:autofillHints="안녕"
-        android:adjustViewBounds="true"
-        tools:ignore="SpeakableTextPresentCheck"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="15dp"
+        android:adjustViewBounds="true"
+        android:autofillHints="안녕"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
+        app:srcCompat="@android:drawable/btn_dialog"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:checkedButton="@id/radioButton"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintStart_toStartOf="@+id/checkBox">
@@ -125,7 +126,6 @@
             android:id="@+id/radioButton"
             android:layout_width="70dp"
             android:layout_height="48dp"
-            android:focusedByDefault="true"
             android:text="On" />
 
         <RadioButton
@@ -140,6 +140,7 @@
         android:layout_width="70dp"
         android:layout_height="48dp"
         android:layout_marginEnd="20dp"
+        android:checked="true"
         android:text="여행"
         app:layout_constraintEnd_toStartOf="@+id/ratingBar"
         app:layout_constraintTop_toTopOf="@+id/ratingBar" />
@@ -197,6 +198,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="83dp"
         android:layout_marginEnd="16dp"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
