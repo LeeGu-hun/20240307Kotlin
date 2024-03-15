@@ -29,12 +29,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tevMobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:autoLink="phone"
         android:text="010-3446-7374"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/tevWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:autoLink="web"
+        android:text="https://busanit.ac.kr/"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/tevDescrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Programmer, Full Stack, AI, IoTProgrammer, Full Stack, AI, IoTProgrammer, Full Stack, AI, IoT"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="74dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
