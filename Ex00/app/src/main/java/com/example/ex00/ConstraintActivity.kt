@@ -25,9 +25,9 @@ class ConstraintActivity : AppCompatActivity() {
         setContentView(binding.main)
 
         binding.btnMobile.setOnClickListener {
-            // 전화에 대한 권한 설정을 해줘야 함.
-            // 설정-애플리케이션-해당앱클릭-권한-전화를 on
-            // permission 을 별도로 설정해주려면 코드를 활용해야 함.
+            // 폰에서 전화에 대한 권한 설정을 해줘야 함.
+            // 설정-애플리케이션-해당앱클릭-권한-전화를 추가할 것
+            // permission 을 별도로 설정 해주려면 코드를 활용해야 함.
             val tel = binding.btnMobile.text
             val uriPhoneNumber = Uri.parse("tel:" + tel)
             val intent = Intent(Intent.ACTION_CALL, uriPhoneNumber)
