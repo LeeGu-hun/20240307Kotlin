@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tevWeb" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editId"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnMobile" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editPw"
         android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
@@ -96,8 +96,8 @@
         android:inputType="textPassword"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintStart_toStartOf="@+id/editId"
+        app:layout_constraintTop_toBottomOf="@+id/editId" />
 
     <ImageButton
         android:id="@+id/imageButtonClose"
@@ -202,6 +202,6 @@
         android:rating="5"
         android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editPw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
