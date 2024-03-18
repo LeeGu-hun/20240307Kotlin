@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 <!--    화면을 가로로 할 경우 res에서 layout-land라는 리소스 디렉토리를 만들어서 가로 화면파일을 넣는다. -->
     <TextView
         android:id="@+id/textView"
