@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat
 import com.example.ex01dialog.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -43,18 +44,12 @@ class MainActivity : AppCompatActivity() {
                         return permission.value == true
                     })) {
                     noti()
+                    Toast.makeText(this, "permission granted...", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "permission denied", Toast.LENGTH_SHORT).show()
                 }
             }
         )
-        binding.btnToast.setOnClickListener {
-            Log.d(">>", "btnToast")
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                showToast()
-            }
-            Toast.makeText(this, "Toast 알림", Toast.LENGTH_SHORT).show()
-        }
         binding.btnNotify.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 if (ContextCompat.checkSelfPermission(
@@ -63,11 +58,24 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     noti()
                 } else {
-                    permissionLauncher
+                    permissionLauncher.launch(
+                        arrayOf("android.permission.POST_NOTIFICATIONS")
+                    )
                 }
+            } else {
+                noti()
             }
             Log.d(">>", "btnNotify")
         }
+
+        binding.btnToast.setOnClickListener {
+            Log.d(">>", "btnToast")
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                showToast()
+            }
+            Toast.makeText(this, "Toast 알림", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -138,6 +146,7 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.send, "Reply", replyPendingIntent
             ).addRemoteInput(remoteInput).build()
         )
+        manager.notify(11, builder.build())
     }
 }
 
