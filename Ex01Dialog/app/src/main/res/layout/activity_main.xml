@@ -84,9 +84,24 @@
         android:textSize="26sp" />
     <androidx.appcompat.widget.AppCompatButton
         android:background="@drawable/main_button"
-        android:id="@+id/btnProgressBarH"
+        android:id="@+id/btnProgressWheel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Progress Bar Horizontal"
+        android:text="Progress Wheel"
         android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Progress Bar"
+        android:textSize="26sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:max="100"
+        android:progress="1"
+        android:layout_height="wrap_content" />
 </LinearLayout>

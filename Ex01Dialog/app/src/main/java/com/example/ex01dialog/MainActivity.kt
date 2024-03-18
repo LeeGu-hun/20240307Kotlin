@@ -1,13 +1,11 @@
 package com.example.ex01dialog
 
 import android.app.DatePickerDialog
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.TimePickerDialog
 import android.content.DialogInterface
-import androidx.core.app.RemoteInput
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
@@ -26,14 +24,17 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
 import com.example.ex01dialog.databinding.ActivityMainBinding
+import com.example.ex01dialog.databinding.ProgressBarBinding
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.temporal.ChronoField
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
+//    var handler: Handler? = null
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -209,18 +210,35 @@ class MainActivity : AppCompatActivity() {
                 show()
             }
         }
-        val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        binding.btnProgressBarH.setOnClickListener {
-            val builder: Notification.Builder =
-                Notification.Builder(this, attributionTag)
-            builder.setProgress(100, 0, false)
-            manager.notify(11, builder.build())
+        binding.btnProgressWheel.setOnClickListener {
+            val progressDialog = ProgressDialog(this, "wheel")
+            progressDialog.show()
+            thread {
+                for (i in 1..3) {
+                    SystemClock.sleep(1000 * 1)
+                }
+                if(progressDialog.isShowing) {
+                    progressDialog.dismiss()
+                }
+            }
+        }
+        binding.btnProgressBar.setOnClickListener {
+            val progressBar = ProgressDialog(this, "bar")
+            val bindingProgress = ProgressBarBinding.inflate(layoutInflater)
+//            val bar = bindingProgress.progressBar
+
+            progressBar.show()
             thread {
                 for (i in 1..100) {
-                    builder.setProgress(100, i, false)
-                    manager.notify(11, builder.build())
-                    SystemClock.sleep(1000 * 3)
+                    runOnUiThread {
+                        bindingProgress.progressBar.progress = i
+                    }
+                    binding.progressBar2.progress = i
+                    SystemClock.sleep(50)
+                }
+                if(progressBar.isShowing) {
+                    progressBar.dismiss()
                 }
             }
         }
