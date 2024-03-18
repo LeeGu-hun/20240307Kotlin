@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다양한 알림 (Dialog)"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:background="@color/yellow"
+        android:textAlignment="center" />
+    <Button
+        android:background="@drawable/main_button"
+        android:id="@+id/btnNotify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification"
+        android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Permission"
+        android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toast"
+        android:textSize="26sp" />
+</LinearLayout>
