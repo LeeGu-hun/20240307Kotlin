@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.R)
     fun showToast(): Unit {
+        //API 수준 28 Pie 다음부터 버전명은 Android10으로 변경
+        //Android11은 API 30, 여기부터 toast의 보여질때 사라질 때를 구분할수 있음
         val toast = Toast.makeText(this, "Toast Callback", Toast.LENGTH_SHORT)
         toast.addCallback(
             object : Toast.Callback() {
