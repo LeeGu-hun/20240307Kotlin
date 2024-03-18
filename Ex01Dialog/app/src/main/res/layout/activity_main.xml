@@ -24,16 +24,69 @@
         android:textSize="26sp" />
     <androidx.appcompat.widget.AppCompatButton
         android:background="@drawable/main_button"
-        android:id="@+id/btnConfirm"
+        android:id="@+id/btnPermission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Permission"
         android:textSize="26sp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:background="@drawable/main_button"
         android:id="@+id/btnToast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Toast"
+        android:textSize="26sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calendar"
+        android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:textSize="26sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AlertDialog"
+        android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnAlertList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AlertList"
+        android:textSize="26sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnAlertCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AlertCheck"
+        android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnAlertRadio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alert Radio"
+        android:textSize="26sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:background="@drawable/main_button"
+        android:id="@+id/btnProgressBarH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Progress Bar Horizontal"
         android:textSize="26sp" />
 </LinearLayout>

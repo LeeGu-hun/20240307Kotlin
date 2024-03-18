@@ -1,8 +1,12 @@
 package com.example.ex01dialog
 
+import android.app.DatePickerDialog
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.TimePickerDialog
+import android.content.DialogInterface
 import androidx.core.app.RemoteInput
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,14 +16,22 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.SystemClock
 import android.util.Log
+import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.example.ex01dialog.databinding.ActivityMainBinding
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.temporal.ChronoField
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.R)
@@ -52,12 +64,15 @@ class MainActivity : AppCompatActivity() {
         )
         binding.btnNotify.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                // 권한에 대해 PERMISSION_GRANTED 이면
                 if (ContextCompat.checkSelfPermission(
                         this, "android.permission.POST_NOTIFICATIONS"
                     ) == PackageManager.PERMISSION_GRANTED
                 ) {
+                    // android.permission.POST_NOTIFICATIONS의 권한 있으면 아래 호출
                     noti()
                 } else {
+                    // android.permission.POST_NOTIFICATIONS의 권한 없으면 아래 호출
                     permissionLauncher.launch(
                         arrayOf("android.permission.POST_NOTIFICATIONS")
                     )
@@ -76,6 +91,139 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Toast 알림", Toast.LENGTH_SHORT).show()
         }
 
+        binding.btnCalendar.setOnClickListener {
+            DatePickerDialog(
+                this, object : DatePickerDialog.OnDateSetListener {
+                    override fun onDateSet(
+                        view: DatePicker?,
+                        year: Int,
+                        month: Int,
+                        dayOfMonth: Int
+                    ) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "year: $year, month: $month, dayOfMonth: $dayOfMonth",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }, LocalDate.now().year, LocalDate.now().get(ChronoField.MONTH_OF_YEAR) - 1,
+                LocalDate.now().dayOfMonth
+            ).show()
+        }
+        binding.btnTime.setOnClickListener {
+            TimePickerDialog(
+                this, object : TimePickerDialog.OnTimeSetListener {
+                    override fun onTimeSet(
+                        view: TimePicker?,
+                        hour: Int, minute: Int
+                    ) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "$hour : $minute",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }, LocalTime.now().hour, LocalTime.now().minute, true
+            ).show()
+        }
+        val eventHandler = object : DialogInterface.OnClickListener {
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+                if (p1 == DialogInterface.BUTTON_POSITIVE) {
+                    Log.d(">>", "BUTTON_POSITIVE")
+                } else if (p1 == DialogInterface.BUTTON_NEGATIVE) {
+                    Log.d(">>", "BUTTON_NEGATIVE")
+                } else {
+                    Log.d(">>", "BUTTON_NEUTRAL")
+                }
+            }
+        }
+        binding.btnAlertDialog.setOnClickListener {
+            AlertDialog.Builder(this).run {
+                setTitle("Custom Dialog")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setMessage("커스텀 다이얼로그 창입니다. 닫으시겠어요?")
+                setPositiveButton("OK", eventHandler)
+                setNegativeButton("Cancel", eventHandler)
+                setNeutralButton("More", eventHandler)
+                show()
+            }
+        }
+
+        binding.btnAlertList.setOnClickListener {
+            val items = arrayOf("사과", "복숭아", "수박", "딸기")
+            AlertDialog.Builder(this).run {
+                setTitle("Custom Dialog List")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setItems(items, object : DialogInterface.OnClickListener {
+                    override fun onClick(p0: DialogInterface?, p1: Int) {
+                        Toast.makeText(
+                            this@MainActivity, "Your choice ${items[p1]}", Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                })
+                setPositiveButton("OK", eventHandler)
+                show()
+            }
+        }
+        binding.btnAlertCheck.setOnClickListener {
+            val items = arrayOf("사과", "복숭아", "수박", "딸기")
+            AlertDialog.Builder(this).run {
+                setTitle("Custom Dialog List")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setMultiChoiceItems(items,
+                    booleanArrayOf(true, false, true, false),
+                    object : DialogInterface.OnMultiChoiceClickListener {
+                        override fun onClick(
+                            p0: DialogInterface?, p1: Int,
+                            p2: Boolean
+                        ) {
+                            Toast.makeText(
+                                this@MainActivity,
+                                " ${items[p1]}이 ${if (p2) "선택!" else "선택 해제!"}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    })
+                setPositiveButton("OK", eventHandler)
+                show()
+            }
+        }
+        binding.btnAlertRadio.setOnClickListener {
+            val items = arrayOf("사과", "복숭아", "수박", "딸기")
+            AlertDialog.Builder(this).run {
+                setTitle("Custom Dialog List")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setSingleChoiceItems(items, 1,
+                    object : DialogInterface.OnClickListener {
+                        override fun onClick(
+                            p0: DialogInterface?, p1: Int
+                        ) {
+                            Toast.makeText(
+                                this@MainActivity,
+                                " ${items[p1]}이 선택!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    })
+                setPositiveButton("OK", eventHandler)
+                show()
+            }
+        }
+        val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        binding.btnProgressBarH.setOnClickListener {
+            val builder: Notification.Builder =
+                Notification.Builder(this, attributionTag)
+            builder.setProgress(100, 0, false)
+            manager.notify(11, builder.build())
+            thread {
+                for (i in 1..100) {
+                    builder.setProgress(100, i, false)
+                    manager.notify(11, builder.build())
+                    SystemClock.sleep(1000 * 3)
+                }
+            }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
