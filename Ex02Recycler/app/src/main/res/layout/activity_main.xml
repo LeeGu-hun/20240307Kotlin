@@ -22,25 +22,36 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnRecyclerList"
-            android:textSize="26sp"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnListV"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="RecyclerList" />
+            android:text="List 세로"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/btnListH"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="List 가로"
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btnRecyclerGrid"
-            android:layout_width="wrap_content"
-            android:textSize="26sp"
+            android:id="@+id/btnGrid"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="RecyclerGrid" />
+            android:text="Grid"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

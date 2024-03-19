@@ -6,10 +6,13 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.view.WindowManager
+import com.example.ex01dialog.databinding.ProgressBarBinding
 
 class ProgressDialog(context: Context, flag: String) : Dialog(context) {
+    val binding = ProgressBarBinding.inflate(layoutInflater)
     init {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
+        setContentView(binding.progressBar)
         if (flag == "wheel") setContentView(R.layout.progress_wheel)
         else setContentView(R.layout.progress_bar)
 
@@ -20,8 +23,8 @@ class ProgressDialog(context: Context, flag: String) : Dialog(context) {
         window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
     }
 
-    fun setStopped(): Unit {
-        setCancelable(true)
+    fun setPrg(i: Int): Unit {
+        binding.progressBar.progress = i
     }
 
 }

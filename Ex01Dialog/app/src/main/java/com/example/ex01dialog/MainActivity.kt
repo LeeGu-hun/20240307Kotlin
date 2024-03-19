@@ -226,13 +226,13 @@ class MainActivity : AppCompatActivity() {
         binding.btnProgressBar.setOnClickListener {
             val progressBar = ProgressDialog(this, "bar")
             val bindingProgress = ProgressBarBinding.inflate(layoutInflater)
-//            val bar = bindingProgress.progressBar
 
             progressBar.show()
             thread {
                 for (i in 1..100) {
                     runOnUiThread {
-                        bindingProgress.progressBar.progress = i
+                        Log.d(">>", "$i  ${bindingProgress.progressBar.progress}")
+                        progressBar.setPrg(i)
                     }
                     binding.progressBar2.progress = i
                     SystemClock.sleep(50)

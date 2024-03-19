@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Ex02Recycler</string>
+    <string name="affirmation0">Affirmation0</string>
+    <string name="affirmation1">Affirmation1</string>
+    <string name="affirmation2">Affirmation2</string>
+    <string name="affirmation3">Affirmation3</string>
+    <string name="affirmation4">Affirmation4</string>
+    <string name="affirmation5">Affirmation5</string>
+    <string name="affirmation6">Affirmation6</string>
+    <string name="affirmation7">Affirmation7</string>
+    <string name="affirmation8">Affirmation8</string>
+    <string name="affirmation9">Affirmation9</string>
 </resources>
