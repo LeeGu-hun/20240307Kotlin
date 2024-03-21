@@ -1,10 +1,21 @@
 package com.example.ex04threadnetwork
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.example.ex04threadnetwork.databinding.FragmentVolleyBinding
+import com.example.ex04threadnetwork.model.ItemModel
+import com.example.ex04threadnetwork.recycler.MyAdapter
+import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +44,45 @@ class VolleyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_volley, container, false)
+        val binding = FragmentVolleyBinding.inflate(inflater, container, false)
+
+        val url = MyApplication.BASE_URL+"/v2/everything?q=" +
+                "${MyApplication.QUERY}&apiKey=${MyApplication.API_KEY}&page=1&pageSize=5"
+        val queue = Volley.newRequestQueue(activity)
+        val jsonRequest = object : JsonObjectRequest(
+            Request.Method.GET, url,null,
+            Response.Listener<JSONObject> {response ->
+                val jsonArray = response.getJSONArray("articles")
+                val mutableList = mutableListOf<ItemModel>()
+                for(i in 0 until jsonArray.length()){
+                    ItemModel().run {
+                        val article = jsonArray.getJSONObject(i)
+                        author = article.getString("author")
+                        title = article.getString("title")
+                        description = article.getString("description")
+                        urlToImage = article.getString("urlToImage")
+                        publishedAt = article.getString("publishedAt")
+                        mutableList.add(this)
+                    }
+                }
+                binding.volleyRecyclerView.layoutManager = LinearLayoutManager(activity)
+                binding.volleyRecyclerView.adapter = MyAdapter(activity as Context, mutableList)
+            },
+            Response.ErrorListener {
+                Log.d(">>", "error... $it")
+            }
+
+        ){
+            override fun getHeaders(): MutableMap<String, String> {
+                val map = mutableMapOf<String, String>(
+                    "User-agent" to MyApplication.USER_AGENT
+                )
+                return map
+            }
+        }
+        queue.add(jsonRequest)
+
+        return binding.root
     }
 
     companion object {

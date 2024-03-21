@@ -1,10 +1,19 @@
 package com.example.ex04threadnetwork
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ex04threadnetwork.databinding.FragmentRetrofitBinding
+import com.example.ex04threadnetwork.model.PageListModel
+import com.example.ex04threadnetwork.recycler.MyAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +42,24 @@ class RetrofitFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_retrofit, container, false)
+        val binding = FragmentRetrofitBinding.inflate(inflater, container, false)
+        val call: Call<PageListModel> = MyApplication.networkService.getList(
+            MyApplication.QUERY, MyApplication.API_KEY, 1, 10
+        )
+        call?.enqueue(object : Callback<PageListModel> {
+            override fun onResponse(call: Call<PageListModel>, response: Response<PageListModel>) {
+                if (response.isSuccessful) {
+                    binding.retrofitRecyclerView.layoutManager = LinearLayoutManager(activity)
+                    binding.retrofitRecyclerView.adapter =
+                        MyAdapter(activity as Context, response.body()?.articles)
+                }
+            }
+
+            override fun onFailure(call: Call<PageListModel>, t: Throwable) {
+                Log.d(">>", "Error............")
+            }
+        })
+        return binding.root
     }
 
     companion object {
