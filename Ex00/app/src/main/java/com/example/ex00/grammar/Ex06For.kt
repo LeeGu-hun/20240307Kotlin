@@ -17,4 +17,7 @@ fun main() {
     // 배열의 원소만 다룰 때
     for (i in arr) println(i)
 
+    for (i in 10 downTo (1) step (1)) {
+        println(i)
+    }
 }
