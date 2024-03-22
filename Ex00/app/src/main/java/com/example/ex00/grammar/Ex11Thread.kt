@@ -4,7 +4,7 @@ import java.util.Scanner
 //import javax.swing.JOptionPane
 
 class Bomb : Thread() {
-    val life = getRand(0, 1)
+    val life = getRand(1, 2)
     var stopped = false
 
     override fun run() {
