@@ -3,7 +3,7 @@ package com.example.ex00.util
 import java.util.Scanner
 //import javax.swing.JOptionPane
 
-class Bomb : Thread() {
+class Bomb : Thread() {  //Bomb
     val life = getRand(0, 1)
     var stopped = false
 

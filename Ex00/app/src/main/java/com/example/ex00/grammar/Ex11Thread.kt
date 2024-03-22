@@ -1,7 +1,7 @@
 package com.example.ex00.grammar
 import java.util.Scanner
 
-class Bomb : Thread() {
+class Bomb : Thread() {  //Bomb
     val life = getRandom(0,1)
     override fun run() {
         for (i in 10 downTo (1) step (1)) {
