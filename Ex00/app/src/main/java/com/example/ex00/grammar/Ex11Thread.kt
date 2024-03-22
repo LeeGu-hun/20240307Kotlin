@@ -40,3 +40,6 @@ fun main() {
 //    val input = JOptionPane.showInputDialog("빨간선(0)과 파란선(1)중에 선택하세요").toInt()
     bomb.choice(input)
 }
+
+// 쓰레드 참조 사이트
+// https://soopeach.tistory.com/253
