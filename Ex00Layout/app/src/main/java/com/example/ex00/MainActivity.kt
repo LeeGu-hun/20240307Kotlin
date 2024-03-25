@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.ex00.ui.theme.Ex00Theme
 
 class MainActivity : ComponentActivity(), View.OnClickListener {
+    //Layout
     override fun onClick(v: View?) {/*if (v?.id == R.id.button) callz(this)
         else if(v?.id == R.id.textView) callz(this)*/
 
