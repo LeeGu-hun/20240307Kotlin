@@ -224,21 +224,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.btnProgressBar.setOnClickListener {
-            val progressBar = ProgressDialog(this, "bar")
+            val progressDialog = ProgressDialog(this, "bar")
             val bindingProgress = ProgressBarBinding.inflate(layoutInflater)
 
-            progressBar.show()
+            progressDialog.show()
             thread {
                 for (i in 1..100) {
                     runOnUiThread {
-                        Log.d(">>", "$i  ${bindingProgress.progressBar.progress}")
-                        progressBar.setPrg(i)
+                        Log.d(">>", "$i  ${progressDialog.binding.progressBar.progress}")
+                        progressDialog.binding.progressBar.progress = i
                     }
+                    progressDialog.binding.progressBar.progress = i
                     binding.progressBar2.progress = i
                     SystemClock.sleep(50)
                 }
-                if(progressBar.isShowing) {
-                    progressBar.dismiss()
+                if(progressDialog.isShowing) {
+                    progressDialog.dismiss()
                 }
             }
         }
