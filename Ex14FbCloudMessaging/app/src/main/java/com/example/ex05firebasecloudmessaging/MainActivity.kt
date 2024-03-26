@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.ex05firebasecloudmessaging.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    // Not Yet Sorry~!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
