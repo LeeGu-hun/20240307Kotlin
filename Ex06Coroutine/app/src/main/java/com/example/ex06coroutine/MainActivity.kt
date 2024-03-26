@@ -16,6 +16,8 @@ import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.launch
 import kotlin.system.measureTimeMillis
 
+// Android thread 관련 정리 잘된 곳
+// https://everyday-develop-myself.tistory.com/185
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var sum:Long = 0
@@ -29,8 +31,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Android thread
-        // https://everyday-develop-myself.tistory.com/185
         binding.button.setOnClickListener {
             // ANR 발생
             /*sum = 0L
@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             }
             Log.d(">>", "time: $time")
             binding.textView.text = "sum: $sum"*/
+
+            // ANR 없도록 Channel과 Coroutine 사용
             val channel = Channel<Int>()
             // 백그라운드에서 동작
             val backgroundScope = CoroutineScope(Dispatchers.Default + Job())

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">chap11recycler2</string>
+    <string name="affirmation1">affirmation1</string>
+    <string name="affirmation2">affirmation2</string>
+    <string name="affirmation3">affirmation3</string>
+    <string name="affirmation4">affirmation4</string>
+    <string name="affirmation5">affirmation5</string>
+    <string name="affirmation6">affirmation6</string>
+    <string name="affirmation7">affirmation7</string>
+    <string name="affirmation8">affirmation8</string>
+    <string name="affirmation9">affirmation9</string>
+    <string name="affirmation10">affirmation10</string>
+
+</resources>
